@@ -856,8 +856,38 @@
 <!-- ==================== MAIN ==================== -->
 <main>
 
- 
- <!-- Stats Bar -->
+  <!-- GitHub Config Panel -->
+  <div class="config-panel" id="configPanel">
+    <div class="config-panel-title"><i class="fa-brands fa-github"></i> GitHub Data Storage Configuration</div>
+    <div class="config-info">
+      <strong>How it works:</strong> This app stores complaint data in a JSON file on a public GitHub repository using the GitHub Contents API with a Personal Access Token.
+      All office computers will share the same data in real-time.<br><br>
+      <strong>Setup:</strong> (1) Create a public GitHub repo, (2) Create a Personal Access Token with <code>repo</code> scope at <em>github.com → Settings → Developer Settings → Personal access tokens</em>, (3) Enter details below and click Connect.
+    </div>
+    <div class="config-form">
+      <div class="form-group">
+        <label>GitHub Username / Org</label>
+        <input class="form-control" id="cfgOwner" placeholder="e.g. cambridge-hvac" />
+      </div>
+      <div class="form-group">
+        <label>Repository Name</label>
+        <input class="form-control" id="cfgRepo" placeholder="e.g. complaints-data" />
+      </div>
+      <div class="form-group">
+        <label>Personal Access Token</label>
+        <input class="form-control" id="cfgToken" type="password" placeholder="ghp_xxxxxxxxxxxx" />
+      </div>
+    </div>
+    <div style="margin-top:.75rem; display:flex; gap:.75rem; flex-wrap:wrap; align-items:center;">
+      <button class="btn btn-outline btn-sm" id="connectBtn"><i class="fa-solid fa-plug"></i> Connect to GitHub</button>
+      <button class="btn btn-sm" style="background:var(--neutral-bg);color:var(--text-muted);border:1.5px solid var(--border);" id="demoModeBtn"><i class="fa-solid fa-flask"></i> Use Demo Mode (in-memory only)</button>
+      <div class="config-status" id="configStatus">
+        <span class="status-dot demo"></span><span>Not connected — data stored in memory this session only</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
   <div class="stats-bar">
     <div class="stat-card">
       <div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -1030,9 +1060,9 @@
 const state = {
   complaints: [],          // array of complaint objects
   github: {
-    owner: 'phillcamheating-cmd',
-    repo: 'camcaseManager',
-    token: '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',
+    owner: '',
+    repo: '',
+    token: '',
     filePath: 'complaints.json',
     sha: null,
     connected: false
