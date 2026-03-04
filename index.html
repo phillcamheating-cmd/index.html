@@ -519,53 +519,7 @@
         let isSolvedExpanded = true;
 
         // Initialize with demo data
-        const demoData = [
-            {
-                id: '1',
-                customerName: 'Sarah Johnson',
-                address: '45 Queen St W, Cambridge, ON',
-                phone: '(519) 623-4567',
-                receivedBy: 'Mike',
-                installer: 'Dave\'s HVAC',
-                technician: 'John Smith',
-                description: 'Furnace not heating properly, blowing cold air',
-                notes: 'Customer reported issue started yesterday evening',
-                priority: 'high',
-                dateOpened: new Date(Date.now() - 86400000).toISOString(),
-                status: 'active',
-                dateSolved: null
-            },
-            {
-                id: '2',
-                customerName: 'Robert Chen',
-                address: '128 Main St, Kitchener, ON',
-                phone: '(519) 744-8901',
-                receivedBy: 'Lisa',
-                installer: '',
-                technician: '',
-                description: 'AC unit making loud noise, not cooling efficiently',
-                notes: 'Model: Carrier Infinity 26',
-                priority: 'medium',
-                dateOpened: new Date(Date.now() - 172800000).toISOString(),
-                status: 'active',
-                dateSolved: null
-            },
-            {
-                id: '3',
-                customerName: 'Emily Davis',
-                address: '67 Wellington St, Cambridge, ON',
-                phone: '(519) 555-2345',
-                receivedBy: 'Mike',
-                installer: 'Cambridge HVAC Pro',
-                technician: 'Sarah Wilson',
-                description: 'Thermostat not responding, temperature fluctuating',
-                notes: 'Replaced batteries, still not working',
-                priority: 'low',
-                dateOpened: new Date(Date.now() - 259200000).toISOString(),
-                status: 'solved',
-                dateSolved: new Date(Date.now() - 86400000).toISOString()
-            }
-        ];
+        const demoData = [];
 
         // ==========================================
         // DATA PERSISTENCE LAYER
